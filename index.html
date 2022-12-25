@@ -13,11 +13,11 @@
         <button onclick="">X</button>
     </div>
 
-    <button onclick="ss('block','id입력하셈')">버튼1</button>
-    <button onclick="ss('block','pw입력하셈')">버튼2</button>
+    <button onclick="idpw('block','id입력하셈')">버튼1</button>
+    <button onclick="idpw('block','pw입력하셈')">버튼2</button>
 
     <script>
-        function ss(display,text){ //파라미터 문법 : 함수 여러개
+        function idpw(display,text){ //파라미터 문법 : 함수 여러개
             document.getElementById('alert').style.display=display;
             document.getElementById('title').innerHTML=text;
         }
