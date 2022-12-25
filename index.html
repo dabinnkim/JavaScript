@@ -8,15 +8,18 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div>우와앙오이</div>
     <div class="alert-box" id="alert">
-        알림창임
-        <button onclick="test('none')">X</button>
+        <p id="title">알림창임</p>
+        <button onclick="">X</button>
     </div>
-    <button onclick="test('block')">버튼</button>
+
+    <button onclick="ss('block','id입력하셈')">버튼1</button>
+    <button onclick="ss('block','pw입력하셈')">버튼2</button>
+
     <script>
-        function test(display){
-            document.getElementById('alert').style.display=display;  
+        function ss(display,text){ //파라미터 문법 : 함수 여러개
+            document.getElementById('alert').style.display=display;
+            document.getElementById('title').innerHTML=text;
         }
 
       
