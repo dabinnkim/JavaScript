@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="alert-box" id="alert">
+        <p id="title">알림창임</p>
+        <button id="close">X</button>
+    </div>
+
+    <button onclick="idpw('block','id입력하셈')">버튼1</button>
+    <button onclick="idpw('block','pw입력하셈')">버튼2</button>
+
+    <script>
+        function idpw(display,text){ //파라미터 문법 : 함수 여러개 -> 하나로 만들수있음
+            document.getElementById('alert').style.display=display;
+            document.getElementById('title').innerHTML=text;
+        }
+
+        document.getElementById('close').addEventListener('click',function(){ //id가 close인것 click 했을때 function안에 있는 함수 실행 *function(){} : 콜백함수
+            document.getElementById('alert').style.display='none';
+        });
+
+    </script>
+</body>
+</html>
