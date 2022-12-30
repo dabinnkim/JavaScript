@@ -11,9 +11,6 @@
 </head>
 
 <body class="mode">
-
-    <body>
-
         <!--로그인 모달창-->
         <div class="black-bg">
             <div class="white-bg">
@@ -44,7 +41,7 @@
             </div>
         </nav>
 
-
+        <!--리스트-->
         <ul class="list-group"> <!--classList로 show 클래스 탈부착해서 클릭시 보여주기 **클래스 부착하는 이유 :  확장성이 좋아짐-->
             <li class="list-group-item">An item</li>
             <li class="list-group-item">A second item</li>
@@ -58,9 +55,8 @@
             <button class="btn btn-danger" id="login">로그인</button>
         </div>
 
-
-        <div class="369">
-            <input type="text" id="number">
+        <div class="alert alert-danger"> 
+            <span id="num">5</span>초 이내 구매시 사은품 증정!
         </div>
 
 
@@ -69,12 +65,9 @@
 
         <script type="text/javascript" src="nav.js"></script>
 
-
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
             crossorigin="anonymous"></script>
-
-
 
 
 
@@ -101,7 +94,6 @@
         </script>
 
         <script>
-
             // [if,else 조건문]
 
             // 전송버튼 눌렀을때
@@ -143,17 +135,31 @@
                 }
             });
 
-            var 이름 = 'kim';
+            //[setTimeout, setInterval 함수]
+            
+             setInterval(function(){ //2초마다 실행
+                console.log('ㅎㅇ');
+            },2000) 
 
 
 
+            //5~1초까지 카운트 하고 사라지기
+            
+            var count = 5;
+
+            setInterval(function(){
+                count -=1;
+                if(count > 0){
+                $('#num').html(count)
+                }else{
+                    $('.alert').hide();
+                }
+            },1000)
+    
 
 
 
 
         </script>
-
-
     </body>
-
 </html>
