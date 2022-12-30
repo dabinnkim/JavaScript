@@ -7,7 +7,7 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body class="mode">
@@ -128,6 +128,7 @@
                     $('.navbar-light').toggleClass('navbar-dark');
                     $('.bg-light').toggleClass('bg-dark');
                 } else { //홀수면
+                    console.log(count);
                     $('.badge').html('Dark 🔄');
                     $('.mode').addClass('dark');
                     $('.navbar-light').toggleClass('navbar-dark');
@@ -137,20 +138,20 @@
 
             //[setTimeout, setInterval 함수]
             
-             setInterval(function(){ //2초마다 실행
+             /*setInterval(function(){ //2초마다 실행
                 console.log('ㅎㅇ');
-            },2000) 
+            },2000)*/
 
 
 
             //5~1초까지 카운트 하고 사라지기
             
-            var count = 5;
+            var countt = 5;
 
             setInterval(function(){
-                count -=1;
-                if(count > 0){
-                $('#num').html(count)
+                countt -=1;
+                if(countt > 0){
+                $('#num').html(countt)
                 }else{
                     $('.alert').hide();
                 }
