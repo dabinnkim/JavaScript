@@ -59,9 +59,25 @@
             <span id="num">5</span>초 이내 구매시 사은품 증정!
         </div>
 
+        <div style="overflow:hidden"> <!--넘치는 요소 숨기기-->
+        <div class="slide-container">
+            <div class="slide-box">
+                <img src="car1.png" alt="">
+            </div>
+            <div class="slide-box">
+                <img src="car2.png" alt="">
+            </div>
+            <div class="slide-box">
+                <img src="car3.png" alt="">
+            </div>
+        </div>
+        </div>
 
-
-
+        <button class="slide-1">1</button>
+        <button class="slide-2">2</button>
+        <button class="slide-3">3</button>
+        <button class="next">다음</button>
+        
 
         <script type="text/javascript" src="nav.js"></script>
 
@@ -83,6 +99,7 @@
             //     document.querySelector('.hello').style.display="none"
             // })
 
+            //[모달창에 애니메이션]
             $('#login').on('click', function () { //로그인 버튼 누르면 모달창 띄워주셈
                 $('.black-bg').addClass('show-modal');
             })
@@ -100,19 +117,20 @@
             // 첫번째 input에 입력된 값이 공백이면(조건문)
             // alert창 띄우기
 
-            var 입력한값 = document.getElementById('email').value
 
-            $('#send').on('click', function () { //$('form').on('submit',function(){ 같은의미
-                if (document.getElementById('email').value == '') { //if ($('#email').val()=='')
+             $('form').on('submit',function(){ // => $('#send').on('click', function () {
+                if ( document.getElementById('email').value == '') { // => if ($('#email').val()=='')
                     alert('아이디 입력하셈');
-                } if(/\S+@\S+.\S+/.test(입력한값)){
+                } else if(/\S+@\S+.\S+/.test(document.getElementById('email').value)){
                     alert('이메일 형식이 아님');
                 } else if (document.getElementById('pw').value == '') {
                     alert('비번 입력하셈');
                 } else if (document.getElementById('pw').value.length < 6) {
                     alert('비번이 6자 미만입니다. 6자 이상으로 입력해주세요');
+                } else if(/[A-Z]/.test(document.getElementById('pw').value)==false){
+                    alert('대문자가 없는데요')
                 }
-            })
+            });
 
 
             //[이벤트,연산자]
@@ -147,8 +165,6 @@
                 console.log('ㅎㅇ');
             },2000)*/
 
-
-
             //5~1초까지 카운트 하고 사라지기
             
             var countt = 5;
@@ -163,8 +179,29 @@
             },1000)
     
 
+            //[캐러셀(이미지 슬라이드)만들기]
+            
 
+            $('.slide-1').on('click',function(){
+                $('.slide-container').css('transform','translateX(0vw)'); //버튼 눌렀을때 css에 transform:translateX(-100vw); 더해줌
+            })
+            $('.slide-2').on('click',function(){
+                $('.slide-container').css('transform','translateX(-100vw)');
+            })
+            $('.slide-3').on('click',function(){
+                $('.slide-container').css('transform','translateX(-200vw)');
+            })
 
+            var 지금사진 = 1;
+
+            $('.next').on('click',function(){
+               $('.slide-container').css('transform','translateX(-'+지금사진+'00vw)');
+               지금사진+=1
+            });
+            
+            
+
+            
 
         </script>
     </body>

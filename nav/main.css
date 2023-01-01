@@ -20,7 +20,7 @@
     z-index : 5;
     padding: 30px;
     visibility: hidden; /*애니메이션일때 사용, display:none;과 비슷 */
-    opacity: 0;
+    opacity: 0; /*불투명도 0~1*/
     transition: all 1s; /*css 속성 변할때 1초에 걸쳐서 서서히 변하게 해주셈*/
   }
   .white-bg {
@@ -37,4 +37,20 @@
   .main-bg{
     padding:100px 20px;
     background-color: lightgray;
+  }
+
+  /*캐러셀(이미지슬라이드) 만들기*/
+  .slide-container{
+    width:300vw; /*브라우저 폭이 100vw임 이미지 3개 들어가야돼서 3개로 만들어준것*/
+    transition:all 1s;
+    /*transform:translateX(-100vw);  */
+  }
+
+  .slide-box{
+    width:100vw;
+    float: left;
+  }
+
+  .slide-box img{
+    width: 100%;
   }
