@@ -54,3 +54,19 @@
   .slide-box img{
     width: 100%;
   }
+
+  /*스크롤바 내리면 로고 작게 만들기*/
+  .navbar{
+    position:fixed; /*상단고정*/
+    width:100%;
+    z-index:5; /*앞으로 보내기*/
+  }
+
+  .navbar-brand{
+    font-size: 30px;
+  }
+
+  .navbar-scroll{
+    font-size: 15px;
+    transform: all 1s;
+  }
