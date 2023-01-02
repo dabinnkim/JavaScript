@@ -55,7 +55,7 @@
     width: 100%;
   }
 
-  /*스크롤바 내리면 로고 작게 만들기*/
+  /*스크롤바 내리면 로고 폰트 작게 만들기*/
   .navbar{
     position:fixed; /*상단고정*/
     width:100%;
@@ -64,9 +64,6 @@
 
   .navbar-brand{
     font-size: 30px;
+    transition:all 1s;
   }
 
-  .navbar-scroll{
-    font-size: 15px;
-    transform: all 1s;
-  }

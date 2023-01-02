@@ -11,6 +11,13 @@
 </head>
 
 <body class="mode">
+
+        <!--스크롤바 진척도-->
+        <div class="scrollbar">
+            <div class="scrollbar-box">
+            </div>
+        </div>
+
         <!--로그인 모달창-->
         <div class="black-bg">
             <div class="white-bg">
@@ -40,6 +47,7 @@
                 </button>
             </div>
         </nav>
+        
 
         <!--리스트-->
         <ul class="list-group"> <!--classList로 show 클래스 탈부착해서 클릭시 보여주기 **클래스 부착하는 이유 :  확장성이 좋아짐-->
@@ -50,6 +58,8 @@
             <li class="list-group-item">And a fifth one</li>
         </ul>
 
+        
+
         <div class="main-bg">
             <h4>Shirts on Sale</h4>
             <button class="btn btn-danger" id="login">로그인</button>
@@ -59,7 +69,15 @@
             <span id="num">5</span>초 이내 구매시 사은품 증정!
         </div>
 
-        <div style="height:1000px"></div>
+        
+
+        <div class="userpro" style="width : 200px; height:100px; overflow-y: scroll;"> <!--overflow-y : 내용물 넘치면 스크롤바 생성해줌-->
+                <span style="font-size:20px; font-weight:bolder;">회원약관</span><br>
+                스크롤바 끝까지 읽으면 안내창 뜸!
+                Vitae illum minima nemo quos quia quaerat aut fugiat! Quia,
+                iure? Ipsum explicabo rem ea fuga cum debitis voluptatibus sit quam.
+                Numquam!
+        </div>
 
         <div style="overflow:hidden"> <!--넘치는 요소 숨기기-->
         <div class="slide-container">
@@ -201,18 +219,36 @@
                지금사진+=1
             });
             
-            //스크롤바 내리면 로고 작게 만들기
-
-            
+            //스크롤바 10이상으로 내리면 로고 폰트사이즈 작아지게
             window.addEventListener('scroll',function(){ //scroll 될때마다 함수 실행
-                console.log(window.scrollY);
-                if(window.scrollY>=100){
-                    alert('ㅎㅇ')
+                console.log(window.scrollY);//스크롤 내린양
+                if(window.scrollY>10){
+                    $('.navbar-brand').css('font-size','15px');
+                }else{
+                    $('.navbar-brand').css('font-size','30px');
                 }
             })
 
+            //회원약관의 스크롤바 끝까지 내리면 alert()띄워서 안내하기
+            //div의 스크롤바 내린 양 + 눈에 보이는 div 높이 == div 실제 높이
+            $('.userpro').on('scroll',function(){
+                var 스크롤양 = document.querySelector('.userpro').scrollTop; 
+                var 실제높이 = document.querySelector('.userpro').scrollHeight; //<div>실제높이(스크롤바 얼마나 할수있는지)
+                var 눈에보이는높이 = document.querySelector('.userpro').clientHeight;
+
+                console.log('스크롤양 :'+ 스크롤양,실제높이,눈에보이는높이);
+
+                if(스크롤양+눈에보이는높이==실제높이){
+                    alert('약관을 다 읽어보셨군요?');
+                }
+            })
+
+            console.log(document.querySelector('html').scrollHeight); //현재 웹페이지 실제 높이 <body>끝나기 전에 넣어야함
+            console.log(document.querySelector('html').clientHeight); //현재 보이는 페이지 높이
             
 
+           
+        
         </script>
     </body>
 </html>
