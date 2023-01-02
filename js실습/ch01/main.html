@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8 show-modal">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body class="mode">
+
+       
+
+        <!--로그인 모달창-->
+        <div class="black-bg">
+            <div class="white-bg">
+                <h4>로그인하세요</h4>
+                <form action="success.html"><!--<form>은 서버로 유저정보 전송하려고 쓰는것임-->
+                    <div class="my-3">
+                        <input type="text" class="form-control" id="email"> <!--첫번째 input-->
+                    </div>
+                    <div class="my-3">
+                        <input type="password" class="form-control" id="pw">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="send">전송</button>
+                    <button type="button" class="btn btn-danger" id="close">닫기</button>
+                </form>
+            </div>
+        </div>
+
+        <!--상단바-->
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <span class="navbar-brand">Navbar</span>
+
+                <span class="badge bg-dark">Light 🔄</span> <!--다크모드 버튼-->
+
+                <button class="navbar-toggler" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+        
+
+        <!--리스트-->
+        <ul class="list-group"> <!--classList로 show 클래스 탈부착해서 클릭시 보여주기 **클래스 부착하는 이유 :  확장성이 좋아짐-->
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+            <li class="list-group-item">A fourth item</li>
+            <li class="list-group-item">And a fifth one</li>
+        </ul>
+
+        
+
+        <div class="main-bg">
+            <h4>Shirts on Sale</h4>
+            <button class="btn btn-danger" id="login">로그인</button>
+        </div>
+
+        <div class="alert alert-danger"> 
+            <span id="num">5</span>초 이내 구매시 사은품 증정!
+        </div>
+
+        
+
+        <div class="userpro" style="width : 200px; height:100px; overflow-y: scroll;"> <!--overflow-y : 내용물 넘치면 스크롤바 생성해줌-->
+                <span style="font-size:20px; font-weight:bolder;">회원약관</span><br>
+                스크롤바 끝까지 읽으면 안내창 뜸!
+                Vitae illum minima nemo quos quia quaerat aut fugiat! Quia,
+                iure? Ipsum explicabo rem ea fuga cum debitis voluptatibus sit quam.
+                Numquam!
+        </div>
+
+        <div style="overflow:hidden"> <!--넘치는 요소 숨기기-->
+        <div class="slide-container">
+            <div class="slide-box">
+                <img src="car1.png" alt="">
+            </div>
+            <div class="slide-box">
+                <img src="car2.png" alt="">
+            </div>
+            <div class="slide-box">
+                <img src="car3.png" alt="">
+            </div>
+        </div>
+        </div>
+
+        <button class="slide-1">1</button>
+        <button class="slide-2">2</button>
+        <button class="slide-3">3</button>
+        <button class="next">다음</button>
+        
+
+        <script type="text/javascript" src="nav.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+
+
+
+        <!--jQuery-->
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+            integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script>
+            // document.querySelector('.hello').innerHTML='하이여';
+            // $('.hello').html('하이'); //document.querySelector=>'$' 함수명이 짧아짐
+            // $('.hello').css('font-size','50px');
+
+            // document.querySelector('#test-btn').addEventListener('click',function(){
+            //     document.querySelector('.hello').style.display="none"
+            // })
+
+            //[모달창에 애니메이션]
+            $('#login').on('click', function () { //로그인 버튼 누르면 모달창 띄워주셈
+                $('.black-bg').addClass('show-modal');
+            })
+
+            $('#close').on('click', function () {
+                $('.black-bg').remove();
+            })
+
+        </script>
+
+        <script>
+            // [if,else 조건문으로 input 공백,이메일 형식 검사]
+
+            // 전송버튼 눌렀을때
+            // 첫번째 input에 입력된 값이 공백이면(조건문)
+            // alert창 띄우기
+
+
+             $('form').on('submit',function(){ // => $('#send').on('click', function () {
+                if ( document.getElementById('email').value == '') { // => if ($('#email').val()=='')
+                    alert('아이디 입력하셈');
+                } else if(/\S+@\S+.\S+/.test(document.getElementById('email').value)){
+                    alert('이메일 형식이 아님');
+                } else if (document.getElementById('pw').value == '') {
+                    alert('비번 입력하셈');
+                } else if (document.getElementById('pw').value.length < 6) {
+                    alert('비번이 6자 미만입니다. 6자 이상으로 입력해주세요');
+                } else if(/[A-Z]/.test(document.getElementById('pw').value)==false){
+                    alert('대문자가 없는데요')
+                }
+            });
+
+
+            //[이벤트,연산자]
+            // document.getElementById('email').addEventListener('change', function () { //<input>에서 일어나는 input,change 이벤트
+            //     alert('하이요')
+            // })
+
+
+            //[다크모드 버튼]
+
+            var count = 0;
+
+            $('.badge').on('click', function () {
+                count += 1; // count=count+1; 누를때마다 1 더해주셈
+                if (count % 2 == 0) { //짝수면
+                    $('.badge').html('Light 🔄');
+                    $('.mode').removeClass('dark');
+                    $('.navbar-light').toggleClass('navbar-dark');
+                    $('.bg-light').toggleClass('bg-dark');
+                } else { //홀수면
+                    console.log(count);
+                    $('.badge').html('Dark 🔄');
+                    $('.mode').addClass('dark');
+                    $('.navbar-light').toggleClass('navbar-dark');
+                    $('.bg-light').toggleClass('bg-dark');
+                }
+            });
+
+            //[setTimeout, setInterval 함수]
+            
+             /*setInterval(function(){ //2초마다 실행
+                console.log('ㅎㅇ');
+            },2000)*/
+
+            //5~1초까지 카운트 하고 사라지기
+            
+            var countt = 5;
+
+            setInterval(function(){
+                countt -=1;
+                if(countt > 0){
+                $('#num').html(countt)
+                }else{
+                    $('.alert').hide();
+                }
+            },1000)
+    
+
+            //[캐러셀(이미지 슬라이드)만들기]
+            
+
+            $('.slide-1').on('click',function(){
+                $('.slide-container').css('transform','translateX(0vw)'); //버튼 눌렀을때 css에 transform:translateX(-100vw); 더해줌
+            })
+            $('.slide-2').on('click',function(){
+                $('.slide-container').css('transform','translateX(-100vw)');
+            })
+            $('.slide-3').on('click',function(){
+                $('.slide-container').css('transform','translateX(-200vw)');
+            })
+
+            var 지금사진 = 1;
+
+            $('.next').on('click',function(){
+               $('.slide-container').css('transform','translateX(-'+지금사진+'00vw)');
+               지금사진+=1
+            });
+            
+            //스크롤바 10이상으로 내리면 로고 폰트사이즈 작아지게
+            window.addEventListener('scroll',function(){ //scroll 될때마다 함수 실행
+                console.log(window.scrollY);//스크롤 내린양
+                if(window.scrollY>10){
+                    $('.navbar-brand').css('font-size','15px');
+                }else{
+                    $('.navbar-brand').css('font-size','30px');
+                }
+            })
+
+            //회원약관의 스크롤바 끝까지 내리면 alert()띄워서 안내하기
+            //div의 스크롤바 내린 양 + 눈에 보이는 div 높이 == div 실제 높이
+            $('.userpro').on('scroll',function(){
+                var 스크롤양 = document.querySelector('.userpro').scrollTop; 
+                var 실제높이 = document.querySelector('.userpro').scrollHeight; //<div>실제높이(스크롤바 얼마나 할수있는지)
+                var 눈에보이는높이 = document.querySelector('.userpro').clientHeight;
+
+                console.log('스크롤양 :'+ 스크롤양,실제높이,눈에보이는높이);
+
+                if(스크롤양+눈에보이는높이==실제높이){
+                    alert('약관을 다 읽어보셨군요?');
+                }
+            })
+
+            console.log(document.querySelector('html').scrollHeight); //현재 웹페이지 실제 높이 <body>끝나기 전에 넣어야함
+            console.log(document.querySelector('html').clientHeight); //현재 보이는 페이지 높이
+            
+
+           
+        
+        </script>
+    </body>
+</html>
