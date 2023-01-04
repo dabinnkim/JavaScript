@@ -11,8 +11,8 @@
 var tab_btn = $('.tab-button'); //자주쓰는 셀렉터는 변수에 넣어 쓰기(성능적으로 좋음)
 var tab_con = $('.tab-content');
 
-
-for(let i = 0; i<5; i++){ //i=0부터 시작해서 i=3이되면 반복 멈춤, 반복문 쓸때 let 넣어야 정확히 반복됨
+for(let i =0; i<tab_btn.length; i++){ //찾으려는 요소 뒤에 .length 붙이면 갯수 세어줌 
+// for(let i = 0; i<5; i++){ //버튼이 5개 이므로 반복문도 5번돌고 멈춤, 반복문 쓸때 let 넣어야 정확히 반복됨
     tab_btn.eq(i).on('click',function(){ // .eq(n) : 왼쪽의 n번째 
         tab_btn.removeClass('orange');
         tab_btn.eq(i).addClass('orange');
