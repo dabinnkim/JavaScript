@@ -27,6 +27,7 @@
     background: white;
     border-radius: 5px;
     padding: 30px;
+    z-index : 5;
   } 
 
   .show-modal{
@@ -59,7 +60,6 @@
   .navbar{
     position:fixed; /*상단고정*/
     width:100%;
-    z-index:5; /*앞으로 보내기*/
   }
 
   .navbar-brand{

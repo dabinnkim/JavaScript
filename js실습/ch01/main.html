@@ -115,8 +115,8 @@
             //     document.querySelector('.hello').style.display="none"
             // })
 
-            //[모달창에 애니메이션]
-            $('#login').on('click', function () { //로그인 버튼 누르면 모달창 띄워주셈
+            //♣모달창 애니메이션, 로그인 버트 누르면 천천히 뜨는 기능
+            $('#login').on('click', function () { 
                 $('.black-bg').addClass('show-modal');
             })
 
@@ -124,10 +124,35 @@
                 $('.black-bg').remove();
             })
 
-        </script>
+            //♣모달창 검은배경 누르면 모달창 닫는 기능 ★이벤트 버블링
+            document.querySelector('.black-bg').addEventListener('click',function(e){
 
-        <script>
-            // [if,else 조건문으로 input 공백,이메일 형식 검사]
+                // e.target;//유저가 실제로 누른것
+
+                // e.currentTarget;//이벤트리스너 달린곳
+                // this; //위와 같은뜻
+
+                // e.preventDefault();//이벤트 기본동작 막아줌
+
+                // e.stopPropagation();//내 상위요소로 이벤트 버블링 막아줌
+
+                
+                console.log(e.target);
+                console.log(document.querySelector('.black-bg'));
+
+                if (e.target == document.querySelector('.black-bg')){ //내가 실제로 누른것 = 모달창의 검은배경
+                    $('.black-bg').removeClass('show-modal');
+                }  
+            })
+            
+
+
+
+
+
+
+
+            //♣if,else 조건문으로 input 공백,이메일 형식 검사
 
             // 전송버튼 눌렀을때
             // 첫번째 input에 입력된 값이 공백이면(조건문)
@@ -149,14 +174,13 @@
             });
 
 
-            //[이벤트,연산자]
+            //♣이벤트,연산자
             // document.getElementById('email').addEventListener('change', function () { //<input>에서 일어나는 input,change 이벤트
             //     alert('하이요')
             // })
 
 
-            //[다크모드 버튼]
-
+            //♣다크모드 버튼
             var count = 0;
 
             $('.badge').on('click', function () {
@@ -175,7 +199,7 @@
                 }
             });
 
-            //[setTimeout, setInterval 함수]
+            //♣setTimeout, setInterval 함수
             
              /*setInterval(function(){ //2초마다 실행
                 console.log('ㅎㅇ');
@@ -195,9 +219,7 @@
             },1000)
     
 
-            //[캐러셀(이미지 슬라이드)만들기]
-            
-
+            //♣캐러셀(이미지 슬라이드)만들기
             $('.slide-1').on('click',function(){
                 $('.slide-container').css('transform','translateX(0vw)'); //버튼 눌렀을때 css에 transform:translateX(-100vw); 더해줌
             })
@@ -215,7 +237,7 @@
                지금사진+=1
             });
             
-            //스크롤바 10이상으로 내리면 로고 폰트사이즈 작아지게
+            //♣스크롤바 10이상으로 내리면 로고 폰트사이즈 작아지게
             window.addEventListener('scroll',function(){ //scroll 될때마다 함수 실행
                 console.log(window.scrollY);//스크롤 내린양
                 if(window.scrollY>10){
@@ -225,7 +247,7 @@
                 }
             })
 
-            //회원약관의 스크롤바 끝까지 내리면 alert()띄워서 안내하기
+            //♣회원약관의 스크롤바 끝까지 내리면 alert()띄워서 안내하기
             //div의 스크롤바 내린 양 + 눈에 보이는 div 높이 == div 실제 높이
             $('.userpro').on('scroll',function(){
                 var 스크롤양 = document.querySelector('.userpro').scrollTop; 
