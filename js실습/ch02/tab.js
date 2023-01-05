@@ -75,3 +75,18 @@ $('.li').click(function(e){
     console.log(e.target.dataset.id); //e.target - 유저가 실제로 누른 것
     tabopen2(e.target.dataset.id); //dataset - 지금 누른 버튼에 숨겨져있던 data-자료이름 가져와줌
 })
+
+
+
+/*array 자료형*/
+var car = ['소나타',50000,true];
+car[0] = '아반떼';
+console.log(car[0]);
+console.log(car.sort());
+
+/*object 자료형*/
+var car2 = {name : '제네시스',price : 50000};
+car2.name='레니게이드';
+car2['name']='캐스퍼';
+console.log(car2['name']);
+ 
