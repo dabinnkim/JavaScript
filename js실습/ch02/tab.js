@@ -72,6 +72,6 @@ function tabopen2(num){
 }
 
 $('.li').click(function(e){
-    console.log(e.target.dataset.id);
-    tabopen2(e.target.dataset.id); //지금 누른 버튼에 숨겨져있던 data-id 가져와줌
+    console.log(e.target.dataset.id); //e.target - 유저가 실제로 누른 것
+    tabopen2(e.target.dataset.id); //dataset - 지금 누른 버튼에 숨겨져있던 data-자료이름 가져와줌
 })
