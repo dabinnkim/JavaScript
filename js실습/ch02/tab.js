@@ -89,4 +89,7 @@ var car2 = {name : '제네시스',price : 50000};
 car2.name='레니게이드';
 car2['name']='캐스퍼';
 console.log(car2['name']);
+
+document.querySelector('.product').innerHTML=car2.name;
+document.querySelector('.price').innerHTML=car2.price;
  
