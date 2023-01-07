@@ -85,11 +85,12 @@ console.log(car[0]);
 console.log(car.sort());
 
 /*object 자료형*/
-var car2 = {name : '제네시스',price : 50000};
+var car2 = {name : '제네시스',price : [50000, 30000, 4000]}; 
 car2.name='레니게이드';
 car2['name']='캐스퍼';
 console.log(car2['name']);
 
-document.querySelector('.product').innerHTML=car2.name;
-document.querySelector('.price').innerHTML=car2.price;
+/* client-side-rendering 데이터바인딩(데이터꽂기)*/
+document.querySelector('.car-title').innerHTML=car2.name;
+document.querySelector('.car-price').innerHTML=car2.price[1];
  
