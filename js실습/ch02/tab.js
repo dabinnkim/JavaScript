@@ -21,6 +21,7 @@ for(let i =0; i<tab_btn.length; i++){ //찾으려는 요소 뒤에 .length 붙�
     });
 }
 
+
 function tabopen(num){ //아래 코드 너무 길어서 함수로 축약함
     tab_btn.removeClass('orange');
     tab_btn.eq(num).addClass('orange');
