@@ -89,3 +89,8 @@ ul.li::after{
 .show {
     display: block;
   }
+
+  /*<select>안에 <selelct> 넣기 추가하기*/
+  .form-hide{
+    display:none;
+  }

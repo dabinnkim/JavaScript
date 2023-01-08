@@ -95,3 +95,16 @@ console.log(car2['name']);
 document.querySelector('.car-title').innerHTML=car2.name;
 document.querySelector('.car-price').innerHTML=car2.price[1];
  
+
+
+/*<select>안에 <select> 넣기 */
+
+$('.form-select').eq(0).on('input',function(){ //input : <input>값 변경될때 이벤트 작동
+    if(this.value =='셔츠'){ //this == e.currentTarget
+        $('.form-select').eq(1).removeClass('form-hide');
+    }else{$('.form-select').eq(1).addClass('form-hide');}
+})
+
+
+
+console.log($('.form-select').eq(0).val());
