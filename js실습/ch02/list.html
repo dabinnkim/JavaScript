@@ -53,13 +53,19 @@
 
 
         // $('.card-body h5').eq(0).html(products[0].title);
-        // $('.card-body p').eq(0).html('가격은'+ products[0].price);
+        // $('.card-body p').eq(0).html('가격은'+ products[0].price); 
+        // $('.card-body h5').eq(1).html(products[1].title);
+        // $('.card-body p').eq(1).html('가격은'+ products[1].price);
+        //비슷한 코드라 반복문 필요!
+    
 
-        //비슷한 코드 반복이라 반복문씀
        for(let i = 0; i<3; i++){
         $('.card-body h5').eq(i).html(products[i].title);
-        $('.card-body p').eq(i).html('가격은'+ products[i].price);
+        $('.card-body p').eq(i).html(`가격은 ${products[i].price}`); //문자중간에 변수넣기
        };
+
+
+      
 
       </script> 
  
