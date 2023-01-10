@@ -100,7 +100,7 @@ document.querySelector('.car-price').innerHTML=car2.price[1];
 /*<select>안에 <select> 넣기 */
 
 $('.form-select').eq(0).on('input',function(){ //input : <input>값 변경될때 이벤트 작동
-    if(this.value =='셔츠'){ //this == e.currentTarget
+    if(this.value =='셔츠'){ //this == e.currentTarget, 현재 선택한 밸류가 셔츠면
         $('.form-select').eq(1).removeClass('form-hide');
     }else{$('.form-select').eq(1).addClass('form-hide');}
 })
