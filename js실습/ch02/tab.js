@@ -79,32 +79,51 @@ $('.li').click(function(e){
 
 
 
-/*array 자료형*/
+//array 자료형
 var car = ['소나타',50000,true];
 car[0] = '아반떼';
 console.log(car[0]);
 console.log(car.sort());
 
-/*object 자료형*/
+//object 자료형
 var car2 = {name : '제네시스',price : [50000, 30000, 4000]}; 
 car2.name='레니게이드';
 car2['name']='캐스퍼';
 console.log(car2['name']);
 
-/* client-side-rendering 데이터바인딩(데이터꽂기)*/
+// client-side-rendering 데이터바인딩(데이터꽂기)
 document.querySelector('.car-title').innerHTML=car2.name;
 document.querySelector('.car-price').innerHTML=car2.price[1];
  
 
 
-/*<select>안에 <select> 넣기 */
+//<select>안에 <select> 넣기
 
 $('.form-select').eq(0).on('input',function(){ //input : <input>값 변경될때 이벤트 작동
-    if(this.value =='셔츠'){ //this == e.currentTarget, 현재 선택한 밸류가 셔츠면
+    var value = this.value;// this == e.currentTarget 현재 선택한 것
+    if(value =='셔츠'){ 
         $('.form-select').eq(1).removeClass('form-hide');
-    }else{$('.form-select').eq(1).addClass('form-hide');}
+        $('.form-select').eq(1).html('');
+    }else if(value=='바지'){
+        $('.form-select').eq(1).removeClass('form-hide');
+        var 템플릿 = 
+        `<option>25</option>
+         <option>28</option>`;
+        $('.form-select').eq(1).html(템플릿);
+    }
 })
 
 
 
-console.log($('.form-select').eq(0).val());
+// 자바스크립트로 html 생성하기
+// 추가함수 insertAdjacentHTML
+var 테스트 = '<p>안녕</p>';
+document.querySelector('#test').insertAdjacentHTML('beforeend',테스트);
+$('#test').append(테스트);
+
+
+
+
+
+
+
