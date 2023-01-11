@@ -97,20 +97,23 @@ document.querySelector('.car-price').innerHTML=car2.price[1];
  
 
 
-//<select>안에 <select> 넣기
+//<select>안에 <select> 넣기 
+
+var pants = [28, 30, 32, 34, 36]; 
 
 $('.form-select').eq(0).on('input',function(){ //input : <input>값 변경될때 이벤트 작동
     var value = this.value;// this == e.currentTarget 현재 선택한 것
     if(value =='셔츠'){ 
         $('.form-select').eq(1).removeClass('form-hide');
-        $('.form-select').eq(1).html('');
-    }else if(value=='바지'){
+        
+    }else if(value=='바지'){ //pants 데이터 갯수만큼 <option> 생성하기
         $('.form-select').eq(1).removeClass('form-hide');
-        var 템플릿 = 
-        `<option>25</option>
-         <option>28</option>`;
-        $('.form-select').eq(1).html(템플릿);
+        $('.form-select').eq(1).html('');
+        pants.forEach(function(a){ // a : array 안에 있던 데이터들
+            $('.form-select').eq(1).append(`<option>${a}</option>`);
+        })
     }
+    
 })
 
 
