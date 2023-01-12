@@ -98,23 +98,35 @@ document.querySelector('.car-price').innerHTML=car2.price[1];
 
 
 //<select>안에 <select> 넣기 
-
+var shirts = [95, 100, 105, 110];
 var pants = [28, 30, 32, 34, 36]; 
 
 $('.form-select').eq(0).on('input',function(){ //input : <input>값 변경될때 이벤트 작동
     var value = this.value;// this == e.currentTarget 현재 선택한 것
     if(value =='셔츠'){ 
         $('.form-select').eq(1).removeClass('form-hide');
-        
-    }else if(value=='바지'){ //pants 데이터 갯수만큼 <option> 생성하기
+        $('.form-select').eq(1).html('');
+        shirts.forEach(function(a){ //forEach : array의 데이터 갯수만큼 반복 a:array안의 데이터들
+            $('.form-select').eq(1).append(`<option>${a}</option>`);
+        })
+    }else if(value=='바지'){ 
         $('.form-select').eq(1).removeClass('form-hide');
         $('.form-select').eq(1).html('');
-        pants.forEach(function(a){ // a : array 안에 있던 데이터들
+        pants.forEach(function(a){  
             $('.form-select').eq(1).append(`<option>${a}</option>`);
         })
     }
     
 })
+
+//object 반복문
+var obj = {name:'kim', age:20}
+
+for(var key in obj){
+    console.log(obj[key]);
+}
+
+
 
 
 
