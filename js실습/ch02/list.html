@@ -13,38 +13,14 @@
     <link rel="stylesheet" href="detail.css">
 </head>
 <body>
-    <div class="card-group container">
-        <div class="card">
-          <img src="https://via.placeholder.com/600">
-          <div class="card-body">
-            <h5>Card title</h5>
-            <p>가격 : 70000</p>
-            <button class="btn btn-danger">주문하기</button>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/600">
-          <div class="card-body">
-            <h5>Card title</h5>
-            <p>가격 : 70000</p>
-            <button class="btn btn-danger">주문하기</button>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/600">
-          <div class="card-body">
-            <h5>Card title</h5>
-            <p>가격 : 70000</p>
-            <button class="btn btn-danger">주문하기</button>
-          </div>
-        </div>
-      </div>
+  <div class="container">
+    <div class="row">
+  
+  
+    </div>
+  </div> 
       
       <script>
-
-      
-        
-
         var products = [
           { id : 0, price : 70000, title : 'Blossom Dress' },
           { id : 1, price : 50000, title : 'Springfield Shirt' },
@@ -57,13 +33,29 @@
         // $('.card-body h5').eq(1).html(products[1].title);
         // $('.card-body p').eq(1).html('가격은'+ products[1].price);
         //비슷한 코드라 반복문 필요!
-    
-
        for(let i = 0; i<3; i++){
         $('.card-body h5').eq(i).html(products[i].title);
         $('.card-body p').eq(i).html(`가격은 ${products[i].price}`); //문자중간에 변수넣기
        };
 
+      products.forEach((a)=>{
+        var card = 
+        `<div class="col-sm-4">
+            <img src="https://via.placeholder.com/600" class="w-100">
+            <h5>${products[0]}</h5>
+            <p>가격 : 70000</p>
+          </div>`;
+      })
+
+
+  
+
+      $('.row').append(card);
+
+      for(let i =0; i<3; i++){
+        $('.col-sm-4 h5').eq(i).html(products[i].title);
+        $('.col-sm-4 p').eq(i).html(`가격은 ${products[i].price}`);
+      }
 
       
 
