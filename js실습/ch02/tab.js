@@ -114,6 +114,7 @@ $('.form-select').eq(0).on('input',function(){ //input : <input>값 변경될때
         $('.form-select').eq(1).html('');
         pants.forEach(function(a){  
             $('.form-select').eq(1).append(`<option>${a}</option>`);
+            // console.log('1');
         })
     }
     
