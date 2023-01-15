@@ -44,63 +44,138 @@
 
 
   <script>
+
+    //ajax으로 data 가져오기
+    $.get('https://codingapple1.github.io/js/more2.json').done((data) => {
+      console.log(data);
+    })
+
+
+
     var products = [
       { id: 0, price: 70000, title: 'Blossom Dress' },
       { id: 1, price: 50000, title: 'Springfield Shirt' },
       { id: 2, price: 60000, title: 'Black Monastery' }
     ];
 
-    //가격 순 정렬 버튼 누르면 가격 정렬되게
-    $('#price').click(function(){
-      products.sort(function(a,b){
-        return a.price-b.price
-      });
-      $('.row').html('');
-      products.forEach((a) => { //products 요소 갯수만큼 반복해주세요~
+
+    //js로 html 만들기
+    products.forEach((a) => { //products 요소 3개라 3번 반복
       var card =
         `<div class="col-sm-4">
             <img src="https://via.placeholder.com/600" class="w-100">
             <h5>${a.title}</h5>
             <p>가격 : ${a.price}</p>
+            <button class="buy">구매</button>
         </div>`;
       $('.row').append(card);
     })
-    })
-  
 
-    //버튼누르면 6만원이하 상품만 보여주기
-    $('#priceFilter').click(function(){
-      var 가격필터 = products.filter(function(a){
-        return a.price <= 60000;
+    //브라우저 localStorage에 저장
+    localStorage.setItem('이름','kim');
+    //저장해놨던 자료 출력
+    localStorage.getItem('이름');
+    //저장해놨던 자료 삭제
+    localStorage.removeItem('이름');
+
+
+    //상품 더보기 버튼 누르면 상품 3개 가져와서 출력하기
+    $('.btn').click(function () {
+      $.get('https://codingapple1.github.io/js/more1.json').done((data) => {
+        console.log(data); //데이터 확인
+
+        data.forEach((a) => {
+          var plus =
+            `<div class="col-sm-4">
+              <img src="https://via.placeholder.com/600" class="w-100">
+              <h5>${a.title}</h5>
+              <p>가격 : ${a.price}</p>
+                </div>`;
+          $('.row').append(plus);
+        })
       })
-      console.log(가격필터);
+    })
+
+
+
+    //가격 순 정렬 버튼 누르면 가격 정렬되게
+    $('#price').click(function () {
+      products.sort(function (a, b) {
+        return a.price - b.price
+      });
       $('.row').html('');
-      
-      가격필터.forEach((a) => { //products 요소 갯수만큼 반복해주세요~
-      var show =
-        `<div class="col-sm-4">
+      products.forEach((a) => { //products 요소 갯수만큼 반복해주세요~
+        var card =
+          `<div class="col-sm-4">
             <img src="https://via.placeholder.com/600" class="w-100">
             <h5>${a.title}</h5>
             <p>가격 : ${a.price}</p>
         </div>`;
-      $('.row').append(show);
+        $('.row').append(card);
+      })
     })
+
+
+
+    //버튼누르면 6만원이하 상품만 보여주기
+    $('#priceFilter').click(function () {
+      var 가격필터 = products.filter((a) => a.price <= 60000)
+      console.log(가격필터);
+      $('.row').html('');
+
+      가격필터.forEach((a) => { //products 요소 갯수만큼 반복해주세요~
+        var show =
+          `<div class="col-sm-4">
+            <img src="https://via.placeholder.com/600" class="w-100">
+            <h5>${a.title}</h5>
+            <p>가격 : ${a.price}</p>
+        </div>`;
+        $('.row').append(show);
+      })
     })
+
+
 
     //버튼누르면 상품명 가나다순 정렬
-    $('#namefilter').click(function(){
-      var 이름필터 = products.sort()
-      console.log(이름필터);
+    $('#namefilter').click(function () {
+      products.sort(function (a, b) {
+        if (a.title < b.title) {
+          return 1
+        } else {
+          return -1
+        }
+      })
+      $('.row').html('');
+
+      products.forEach((a) => {
+        var 이름필터 =
+          `<div class="col-sm-4">
+            <img src="https://via.placeholder.com/600" class="w-100">
+            <h5>${a.title}</h5>
+            <p>가격 : ${a.price}</p>
+        </div>`;
+        $('.row').append(이름필터);
+      })
     })
 
 
-    // 정렬
+
+
+    // var 어레이문자=['가','나','다'];
+
+    // // 문자 역순 정렬
+    // 어레이문자.sort(function(a,b){
+    //   if (a<b){
+    //     return 1
+    //   }else{
+    //     return -1
+    //   }
+    // }); 
+
+
+
     // var 어레이 =[7,3,5,2,40];
 
- 
-    // 문자
-    // 어레이.sort(); 
-    
     // 숫자
     // 어레이.sort(function(a,b){ 
     //   return a-b
@@ -127,47 +202,20 @@
     //  };
 
 
-    //js로 html 만들기
-    products.forEach((a) => { //products 요소 3개라 3번 반복
-      var card =
-        `<div class="col-sm-4">
-            <img src="https://via.placeholder.com/600" class="w-100">
-            <h5>${a.title}</h5>
-            <p>가격 : ${a.price}</p>
-        </div>`;
-      $('.row').append(card);
-    })
 
 
-     //ajax으로 data 가져오기
-     $.get('https://codingapple1.github.io/js/more2.json').done((data)=>{
-        console.log(data);
-      })
 
 
-    //상품 더보기 버튼 누르면 상품 3개 가져와서 출력하기
-    $('.btn').click(function () {
-      $.get('https://codingapple1.github.io/js/more1.json').done((data) => {
-        console.log(data); //데이터 확인
-
-        data.forEach((a) => {
-          var plus =
-            `<div class="col-sm-4">
-              <img src="https://via.placeholder.com/600" class="w-100">
-              <h5>${a.title}</h5>
-              <p>가격 : ${a.price}</p>
-                </div>`;
-          $('.row').append(plus);
-        })
-      })
-    })
-
-   
 
 
-    
 
-   
+
+
+
+
+
+
+
 
 
 
