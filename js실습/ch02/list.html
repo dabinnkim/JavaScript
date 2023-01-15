@@ -71,12 +71,49 @@
       $('.row').append(card);
     })
 
-    //브라우저 localStorage에 저장
-    localStorage.setItem('이름','kim');
-    //저장해놨던 자료 출력
-    localStorage.getItem('이름');
-    //저장해놨던 자료 삭제
-    localStorage.removeItem('이름');
+
+    //브라우저 localStorage
+    localStorage.setItem('이름', 'kim') //자료저장하는법
+    localStorage.getItem('이름') //자료꺼내는법
+    localStorage.removeItem('이름') //자료삭제하는법
+
+
+
+    //array형식으로 저장하기
+    var arr = [1,2,3];
+    var newArr = JSON.stringify(arr); 
+    localStorage.setItem('이름',newArr);
+
+    //array 형식으로 꺼내기
+    var 꺼내기 = localStorage.getItem('이름'); 
+    console.log(JSON.parse(꺼내기)); 
+    
+
+
+
+    //구매버튼누르면 로컬스토리지에 상품명 저장
+    $('.buy').click(function(){   
+      var title = $(this).siblings('h5').text();//지금 클릭한 것의 형제태그h5의 텍스트 가져오기
+      
+      
+      /*
+      만약 이미 cart라는 항목이 있으면 수정하기 (수정하기 순서 1.꺼내고 2.자료추가해서 3.다시넣기)
+      근데 그게 아니면 cart 추가하기
+      */
+
+      if (localStorage.getItem('cart')!=null){ //만약 cart에 데이터가 있다면
+        var 꺼낸것 = JSON.parse(localStorage.cart); //localStorage.getItem('cart') == localStorage.cart
+        꺼낸것.push(title); //추가
+        localStorage.setItem('cart',JSON.stringify(꺼낸것));//다시넣기
+        
+      }else{ //cart에 데이터가 없다면 
+        localStorage.setItem('cart',JSON.stringify([title]));
+      }
+      
+      
+      
+    })
+   
 
 
     //상품 더보기 버튼 누르면 상품 3개 가져와서 출력하기
