@@ -40,7 +40,10 @@
   </div>
 
 
-
+  <div>
+    <div class="장바구니">장바구니</div>
+    
+  </div>
 
 
   <script>
@@ -68,7 +71,7 @@
             <p>가격 : ${a.price}</p>
             <button class="buy">구매</button>
         </div>`;
-      $('.row').append(card);
+      $('.row').append(card); //요소 갯수만큼 append 됨
     })
 
 
@@ -108,11 +111,21 @@
         
       }else{ //cart에 데이터가 없다면 
         localStorage.setItem('cart',JSON.stringify([title]));
-      }
-      
-      
-      
+      }      
     })
+
+
+    //로컬스토리지에 저장된것 화면에 출력하기
+    var 스토리지 = JSON.parse(localStorage.cart);
+
+    스토리지.forEach((a)=>{
+      var 바구니 = `<p> 추가한것 ${a}</p>`
+      $('.장바구니').append(바구니);
+    })
+
+
+
+ 
    
 
 
