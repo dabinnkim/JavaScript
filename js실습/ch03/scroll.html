@@ -25,30 +25,38 @@
 
       <script>
         // 스크롤 높이에 따라 변하는 opacity
-        var 카드박스 = $('.card-box')
+       
 
         $(window).scroll(function(){
             var 높이 = $(window).scrollTop();
             console.log(높이);  
             
+            
+
+            
+            /* 1차 함수는
+            y=a*높이+b */
+
             var y = (-1/500) * 높이 + (115/50);
-            /*
-            1차 함수 : y=a*높이+b
-
-            1=a*650+b;
-            0=a*1150+b;
-
-            a=-1/500;
-            b=115/500*/
-
+            
             $('.card-box').eq(0).css('opacity', y); //미지의 변수 y : 높이가 650~1150일때 0~1이 되는 y
-            
 
 
-            
-            
 
+            var x = (-1/5000) * 높이 + 565/500;
+
+            $('.card-box').eq(0).css('transform',`scale(${x})`);
+  
         })
+
+                
+
+
+      
+
+       
+
+
 
         
 
