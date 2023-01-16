@@ -42,7 +42,6 @@
 
   <div>
     <div class="장바구니">장바구니</div>
-    
   </div>
 
 
@@ -76,16 +75,16 @@
 
 
     //브라우저 localStorage
-    localStorage.setItem('이름', 'kim') //자료저장하는법
-    localStorage.getItem('이름') //자료꺼내는법
-    localStorage.removeItem('이름') //자료삭제하는법
+    localStorage.setItem('이름', 'kim'); //자료저장하는법
+    localStorage.getItem('이름'); //자료꺼내는법
+    localStorage.removeItem('이름'); //자료삭제하는법
 
 
 
     //array형식으로 저장하기
     var arr = [1,2,3];
     var newArr = JSON.stringify(arr); 
-    localStorage.setItem('이름',newArr);
+    localStorage.setItem('어레이',newArr);
 
     //array 형식으로 꺼내기
     var 꺼내기 = localStorage.getItem('이름'); 
@@ -109,7 +108,7 @@
         꺼낸것.push(title); //추가
         localStorage.setItem('cart',JSON.stringify(꺼낸것));//다시넣기
         
-      }else{ //cart에 데이터가 없다면 
+      }else{ //cart에 데이터가 없다면 (맨첨추가할때)
         localStorage.setItem('cart',JSON.stringify([title]));
       }      
     })
