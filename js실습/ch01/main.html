@@ -75,24 +75,6 @@
                 Numquam!
         </div>
 
-        <div style="overflow:hidden"> <!--넘치는 요소 숨기기-->
-        <div class="slide-container">
-            <div class="slide-box">
-                <img src="car1.png" alt="">
-            </div>
-            <div class="slide-box">
-                <img src="car2.png" alt="">
-            </div>
-            <div class="slide-box">
-                <img src="car3.png" alt="">
-            </div>
-        </div>
-        </div>
-
-        <button class="slide-1">1</button>
-        <button class="slide-2">2</button>
-        <button class="slide-3">3</button>
-        <button class="next">다음</button>
         
 
         <script type="text/javascript" src="nav.js"></script>
@@ -219,23 +201,7 @@
             },1000)
     
 
-            //♣캐러셀(이미지 슬라이드)만들기
-            $('.slide-1').on('click',function(){
-                $('.slide-container').css('transform','translateX(0vw)'); //버튼 눌렀을때 css에 transform:translateX(-100vw); 더해줌
-            })
-            $('.slide-2').on('click',function(){
-                $('.slide-container').css('transform','translateX(-100vw)');
-            })
-            $('.slide-3').on('click',function(){
-                $('.slide-container').css('transform','translateX(-200vw)');
-            })
-
-            var 지금사진 = 1;
-
-            $('.next').on('click',function(){
-               $('.slide-container').css('transform','translateX(-'+지금사진+'00vw)');
-               지금사진+=1
-            });
+            
             
             //♣스크롤바 10이상으로 내리면 로고 폰트사이즈 작아지게
             window.addEventListener('scroll',function(){ //scroll 될때마다 함수 실행
