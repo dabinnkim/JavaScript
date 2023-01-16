@@ -8,10 +8,30 @@
     float:right;
     width: 400px;
     position:sticky;
-    top:50px;
+    top:100px; /*top 100px 부터 고정됨*/
 }
 
 .text{
     float: left;
     width:300px;
+}
+
+/*스크롤*/
+
+.card-background{
+    height:3000px;
+    margin-top: 800px;
+    margin-bottom: 1600px;
+}
+
+.card-box img {
+    display: block;
+    margin:auto; /*가운데 정렬*/
+    max-width:80%;
+}
+
+.card-box{
+    position:sticky;
+    top:400px; /*top 400px 부터 고정됨*/
+    margin-top:200px;
 }
