@@ -43,7 +43,6 @@
   /*캐러셀(이미지슬라이드) 만들기*/
   .slide-container{
     width:300vw; /*브라우저 폭이 100vw임 이미지 3개 들어가야돼서 3개로 만들어준것*/
-    transition:all 1s;
     /*transform:translateX(-100vw);  */
   }
 
