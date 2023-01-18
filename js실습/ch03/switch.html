@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="quiz">
+    <h4>물에 빠지면 누구먼저 구할 것임?</h4>
+    <button>남편</button>
+    <button>부모님</button>
+    <button>키우던 개</button>
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script>
+
+        $('#quiz').click(function(e){
+            switch($(e.target).html()){
+                case '남편' :
+                    alert('남편이 가장 중요하군요');
+                    break
+                case '부모님' :
+                    alert('부모님이 가장 중요하군요');
+                    break
+                case '키우던 개':
+                    alert('키우던 개가 가장 중요하군요');
+                    break
+            }
+            
+        })
+
+
+
+
+
+        // let 변수 = 2+2;
+        
+        // switch(변수){
+        //     case 3:
+        //         alert('변수가 3이네요');
+        //         break
+        //     case 4:
+        //         alert('변수가 4이네요');
+        //         break
+        //     default: //else와 비슷
+        //         alert('아무것도 해당안됨')
+            
+        // }
+
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>
