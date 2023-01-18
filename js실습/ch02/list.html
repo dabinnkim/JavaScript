@@ -104,7 +104,7 @@
       */
 
       if (localStorage.getItem('cart')!=null){ //만약 cart에 데이터가 있다면
-        var 꺼낸것 = JSON.parse(localStorage.cart); //localStorage.getItem('cart') == localStorage.cart
+        var 꺼낸것 = JSON.parse(localStorage.cart); //꺼내기 localStorage.getItem('cart') == localStorage.cart
         꺼낸것.push(title); //추가
         localStorage.setItem('cart',JSON.stringify(꺼낸것));//다시넣기
         
