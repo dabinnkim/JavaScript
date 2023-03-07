@@ -1,0 +1,62 @@
+
+.container{
+    background-color: pink;
+    width:350px;
+    height:700px;
+    position:absolute;
+}
+
+.menu, .btn{
+    display: flex;
+    justify-content:space-evenly;
+    font-size: 10px;
+    text-align: center;
+    line-height: 50px; /*텍스트 세로정렬시 메뉴 박스 높이와 같게*/
+    margin-top:100px;
+}
+
+.price{
+    display: flex;
+    justify-content:space-evenly;
+    font-size: 10px;
+    text-align: center;
+}
+
+#m{
+    width:50px;
+    height:50px;
+    border: 1px solid black;
+}
+
+#p{
+    width:50px;
+}
+
+
+#btn1, #btn2, #btn3{
+    border: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.result_btn{
+    display: flex;
+    justify-content:flex-end;
+    margin:100px 50px 0 0;
+}
+
+#결과출력{
+    border: 1px solid black;
+}
+
+
+.result{
+    width:300px;
+    height:200px;
+    margin:20px;
+    border: 1px solid black;
+}
+
+
