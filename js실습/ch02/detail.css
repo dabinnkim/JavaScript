@@ -94,3 +94,7 @@ ul.li::after{
   .form-hide{
     display:none;
   }
+
+.test{
+    list-style: none;
+}
