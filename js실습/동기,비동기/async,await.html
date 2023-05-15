@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">버튼</button>
+    <script>
+        // 프로미스랑 async, await 한번에 쓰기
+        
+        async function 더하기(){
+            var promise = new Promise(function(resolve, reject){
+                document.querySelector('#btn').addEventListener('click',function(){
+                    resolve('성공했어요');
+                })
+            })
+
+            var 결과 = await promise;
+            console.log(결과)
+        }
+
+        더하기()
+
+        
+        //파라미터 있는 함수 
+        async function 배경색(newColor){
+            var promise = new Promise(function(resolve, reject){
+                document.body.style.backgroundColor=newColor;
+                resolve('성공했어요')
+            })
+        
+            var 결과 = await promise;
+            console.log(결과)
+            
+        }
+
+
+        배경색('pink')
+
+
+
+    </script>
+</body>
+</html>
